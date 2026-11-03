@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Journey • Haley's Journal</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+:root{--bg:#17232a;--panel:#f4e7c8;--ink:#513b32;--wood:#8a573d;--wood2:#603c30;--gold:#e5b84c;--pink:#e99aa8;--mint:#9bc8a6;--muted:#a58b73;--shadow:#291b1a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 5%,#425c56 0,transparent 28%),linear-gradient(145deg,#1c2e35,#10191f);color:#f9edcf;font-family:'VT323',monospace;font-size:22px;min-height:100vh;padding:22px 14px 60px}
+.wrap{max-width:1080px;margin:auto}.top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:18px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:14px}.avatar{width:84px;height:84px;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(4px 4px 0 #271b20);background:#f8d7bd;border:4px solid #bd8159;box-shadow:inset 0 0 0 3px #ffe8c9}
+h1{font:14px 'Press Start 2P';line-height:1.8;color:#ffdfa0;text-shadow:3px 3px #684536;margin:0}.subtitle{color:#c7d5bd;font-size:23px}
+.panel{background:var(--panel);color:var(--ink);border:5px solid var(--wood2);outline:3px solid #bd895c;box-shadow:0 7px 0 #0c1419,inset 0 0 0 3px #d7b58a;padding:17px;margin:14px 0}
+.panel h2{font:10px 'Press Start 2P';line-height:1.8;margin:0 0 15px;color:#704732}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stat{background:#e7d3aa;border:3px solid #b8885b;padding:10px;text-align:center}.stat small{display:block;font-size:19px;color:#78543e}.stat strong{font-size:30px;color:#4b352c}
+.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}.daynav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}.daynav button,.btn{border:3px solid #684332;background:#a96f4e;color:#fff2d4;padding:7px 12px;font:20px 'VT323';cursor:pointer;box-shadow:0 3px 0 #59382e}.daynav button:active,.btn:active{transform:translateY(2px);box-shadow:0 1px 0 #59382e}.daytitle{text-align:center;font:10px 'Press Start 2P';line-height:1.8;color:#684332}
+.task{display:flex;align-items:center;gap:10px;border-bottom:2px dashed #c9ad80;padding:8px 2px}.task:last-child{border:0}.task input{appearance:none;width:22px;height:22px;border:3px solid #8a6345;background:#fff4d8;cursor:pointer;flex:none}.task input:checked{background:#79a779;border-color:#416b4d;box-shadow:inset 0 0 0 4px #d9efc9}.task label{flex:1;cursor:pointer}.pts{font-size:20px;color:#a16a38;min-width:42px;text-align:right}
+.progress{height:18px;background:#c7ad83;border:3px solid #876246;margin:8px 0 4px}.progress>i{display:block;height:100%;background:linear-gradient(90deg,#8eb88a,#d7b95d);width:0%}
+.moneyrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.moneyrow input,.rewardform input{min-width:0;flex:1;background:#fff7e4;border:3px solid #b58b62;padding:8px;color:#513b32;font:21px 'VT323'}.goal{font-size:20px;color:#78543e}
+.map{display:grid;grid-template-columns:repeat(10,1fr);gap:5px}.tile{aspect-ratio:1;border:2px solid #876246;background:#d6c39d;color:#6a513b;font:16px 'VT323';cursor:pointer;display:grid;place-items:center;min-width:0}.tile.today{outline:3px solid #e5b84c;outline-offset:1px}.tile.perfect{background:#e5b84c;color:#5a3a1e;border-color:#a9782d}.tile.high{background:#8dbb87}.tile.mid{background:#d5c16f}.tile.low{background:#d28c83}.tile.empty{background:#d6c39d}
+.shopitem{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:8px 0;border-bottom:2px dashed #c9ad80}.shopitem:last-child{border:0}.shopitem small{display:block;color:#8a654b;font-size:18px}.shopitem button{font:18px 'VT323';border:2px solid #76503a;background:#d7b58a;color:#563a2b;padding:4px 8px;cursor:pointer}.shopitem button:disabled{opacity:.45;cursor:not-allowed}.rewardform{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}.rewardform input{flex:1 1 100px}.rewardform button{border:3px solid #684332;background:#75966e;color:#fff;padding:6px 12px;font:20px 'VT323';cursor:pointer}
+.history{font-size:19px;color:#72513d}.history div{padding:5px 0;border-bottom:1px dashed #c9ad80}
+.settings{display:grid;grid-template-columns:1.3fr 1fr 1fr auto;gap:10px;align-items:end}.settings label{display:block;font-size:19px;color:#78543e;margin-bottom:4px}.settings input{width:100%;min-width:0;background:#fff7e4;border:3px solid #b58b62;padding:8px;color:#513b32;font:21px 'VT323'}body.dark .settings label{color:#e5cda7}body.dark .settings input{background:#e8dcc2}.footer{text-align:center;color:#b6c5ac;font-size:20px;margin:22px}.tiny{font-size:17px;color:#86684e}.top-actions{display:flex;gap:8px}.top-actions button{background:#415b50;border:2px solid #b6c99c;color:#f5ebcd;padding:7px 10px;font:18px 'VT323';cursor:pointer}
+body.dark .panel{background:#302f2c;color:#f1dfbd;border-color:#704d3b;outline-color:#a87853}body.dark .panel h2{color:#f0c98c}body.dark .stat{background:#494238;border-color:#8d6748}body.dark .stat strong,body.dark .stat small,body.dark .goal,body.dark .shopitem small,body.dark .history,body.dark .tiny{color:#e5cda7}body.dark .task{border-color:#66513e}body.dark .task input{background:#ddd0b4}body.dark .daytitle{color:#f0d4a6}body.dark .progress{background:#62513d}body.dark .tile{border-color:#745b42}body.dark .rewardform input,body.dark .moneyrow input{background:#e8dcc2}
+@media(max-width:760px){.settings{grid-template-columns:1fr 1fr}.settings .wide{grid-column:1/-1}.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:11px}.avatar{width:68px;height:68px}.map{grid-template-columns:repeat(8,1fr)}body{padding:12px 9px}}
+
+/* Consistent pixel typography */
+html, body, body * {
+  font-family: 'VT323', monospace;
+}
+h1, .panel h2, .daytitle {
+  font-family: 'Press Start 2P', monospace !important;
+}
+button, input, select, textarea {
+  font-family: 'VT323', monospace !important;
+}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+ <div class="brand"><img class="avatar" src="data:image/png;base64,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" alt="Yüklenen piksel karakter"><div><h1>WINTER ARC</h1><div class="subtitle" id="subtitle">Haley's little journey journal ✦</div></div></div>
+ <div class="top-actions"><button id="themeBtn">☾ Theme</button><button id="exportBtn">↓ Export</button><button id="importBtn">↑ Import</button><input id="importFile" type="file" accept="application/json" hidden></div>
+</header>
+<section class="panel">
+ <h2>✦ JOURNEY SETTINGS</h2>
+ <div class="settings">
+  <div class="wide"><label for="periodName">Your period name</label><input id="periodName" maxlength="40" placeholder="e.g. Winter Arc, Spring Reset"></div>
+  <div><label for="startDate">Start date</label><input id="startDate" type="date"></div>
+  <div><label for="endDate">End date</label><input id="endDate" type="date"></div>
+  <button class="btn" id="applyPeriod">Save period</button>
+ </div>
+ <div class="tiny" style="margin-top:8px">You can start a new journey whenever you like. Your saved daily entries remain in this browser.</div>
+</section>
+<section class="panel">
+ <div class="stats">
+  <div class="stat"><small>❄ TOTAL XP / LEVEL</small><strong id="xp">0</strong><small id="level">Level 1</small></div>
+  <div class="stat"><small>✦ SPENDABLE BALANCE</small><strong id="balance">0</strong><small>points</small></div>
+  <div class="stat"><small>🔥 STREAK</small><strong id="streak">0</strong><small>days with 50+ points</small></div>
+  <div class="stat"><small>❄ DAYS COMPLETED</small><strong id="days">0/57</strong><small>winter journey</small></div>
+ </div>
+</section>
+<div class="grid">
+ <section class="panel">
+  <div class="daynav"><button id="prev">◀</button><div><div class="daytitle" id="dayTitle">NOVEMBER 4, 2026</div><div class="tiny" id="dayNumber" style="text-align:center">DAY 1 / 57</div></div><button id="next">▶</button></div>
+  <h2>DAILY QUESTS</h2><div id="tasks"></div>
+  <div style="display:flex;justify-content:space-between;margin-top:12px"><b>Daily points</b><strong><span id="dailyScore">0</span> / 100</strong></div>
+  <div class="progress"><i id="dayBar"></i></div>
+  <div style="margin-top:16px"><h2>TODAY'S SAVINGS</h2><div class="moneyrow"><input id="savingInput" type="number" min="0" step="1" placeholder="How many TRY did you save today?"><button class="btn" id="saveSaving">Save</button></div><div class="goal" style="margin-top:9px">Total: <b id="savedTotal">0 TL</b> / <b id="goalLabel">5.000 TL</b></div><div class="progress"><i id="savingBar"></i></div><div class="moneyrow"><span class="tiny">Savings goal (TRY):</span><input id="goalInput" type="number" min="1" value="5000" style="max-width:120px"><button class="btn" id="setGoal">Set goal</button></div></div>
+ </section>
+ <section class="panel">
+  <h2>✦ JOURNEY MAP</h2><div class="tiny" style="margin-bottom:10px">Select a day to jump to it.</div><div class="map" id="map"></div>
+  <div class="tiny" style="margin-top:12px">■ 0 points &nbsp; <span style="color:#8dbb87">■</span> 50+ &nbsp; <span style="color:#d5c16f">■</span> 75+ &nbsp; <span style="color:#d28c83">■</span> 1–49 &nbsp; <span style="color:#c18b27">■</span> 100 points</div>
+ </section>
+</div>
+<section class="panel">
+ <h2>♡ REWARD SHOP</h2>
+ <div class="tiny">Add items from your wishlist here. Buying a reward reduces your balance, but your total XP and level stay the same.</div>
+ <div id="rewards"></div>
+ <div class="rewardform"><input id="rewardName" placeholder="Reward name"><input id="rewardPrice" type="number" min="1" placeholder="Price (TRY)"><input id="rewardCost" type="number" min="1" placeholder="Points required"><button id="addReward">＋ Add</button></div>
+ <h2 style="margin-top:20px">RECENT PURCHASES</h2><div class="history" id="purchases">No rewards yet. Your first reward is waiting for you! ✨</div>
+</section>
+<div class="footer">✦ Small steps lead to big growth. Keep going, darling! ✦<br><span class="tiny">Your data is stored only in this browser. Use “Export” regularly to download a JSON backup.</span></div>
+</div>
+<script>
+const DEFAULT_START="2026-11-04", DEFAULT_END="2026-12-30";
+const dateFromKey=k=>{let [y,m,d]=k.split("-").map(Number);return new Date(y,m-1,d)};
+const periodStart=()=>dateFromKey(data.startDate||DEFAULT_START);
+const periodEnd=()=>dateFromKey(data.endDate||DEFAULT_END);
+const dayCount=()=>Math.max(1,Math.round((periodEnd()-periodStart())/86400000)+1);
+const tasks=[["Workout",20],["Study",20],["Healthy eating",20],["Drink water",5],["Morning skincare",5],["Evening skincare",5],["Go to bed early",5],["Save money",20]];
+const key="winterArcHaley_v1";
+let data=JSON.parse(localStorage.getItem(key)||"null")||{days:{},goal:5000,rewards:[],purchases:[],dark:false};
+data.periodName=data.periodName||"Winter Arc";data.startDate=data.startDate||DEFAULT_START;data.endDate=data.endDate||DEFAULT_END;
+let COUNT=dayCount();
+let selected=0;
+function dayKey(i){let d=periodStart();d.setDate(d.getDate()+i);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`}
+function getDay(i){return data.days[dayKey(i)]||{checks:[],saving:0}}
+function score(i){let d=getDay(i);return tasks.reduce((s,t,j)=>s+(d.checks.includes(j)?t[1]:0),0)}
+function save(){localStorage.setItem(key,JSON.stringify(data));render()}
+function fmtDate(i){let d=periodStart();d.setDate(d.getDate()+i);return d.toLocaleDateString("en-US",{day:"numeric",month:"long",year:"numeric"}).toLocaleUpperCase("en-US")}
+function totals(){let xp=0,balance=0,saved=0,days=0;for(let i=0;i<COUNT;i++){let s=score(i);xp+=s;if(s>0)days++;saved+=Number(getDay(i).saving)||0}balance=xp-data.purchases.reduce((s,p)=>s+p.cost,0);let streak=0;let now=new Date();now.setHours(0,0,0,0);let todayIndex=Math.floor((now-periodStart())/86400000);let last=Math.min(COUNT-1,todayIndex);if(last>=0){for(let i=last;i>=0;i--){if(score(i)>=50)streak++;else break}}return{xp,balance,saved,days,streak}}
+function render(){
+ document.body.classList.toggle("dark",!!data.dark);
+ let t=totals(),d=getDay(selected),s=score(selected);
+ document.getElementById("xp").textContent=t.xp;document.getElementById("balance").textContent=t.balance;document.getElementById("streak").textContent=t.streak;document.getElementById("days").textContent=t.days+"/"+COUNT;document.getElementById("level").textContent="Level "+(Math.floor(t.xp/500)+1);
+ document.getElementById("dayTitle").textContent=fmtDate(selected);document.getElementById("dayNumber").textContent=`DAY ${selected+1} / ${COUNT}`;
+ document.getElementById("periodName").value=data.periodName;document.getElementById("startDate").value=data.startDate;document.getElementById("endDate").value=data.endDate;document.getElementById("subtitle").textContent=`Haley's little ${data.periodName.toLowerCase()} journal ✦`;document.querySelector("h1").textContent=data.periodName.toUpperCase();
+ document.getElementById("dailyScore").textContent=s;document.getElementById("dayBar").style.width=s+"%";
+ document.getElementById("tasks").innerHTML=tasks.map((x,j)=>`<div class="task"><input type="checkbox" id="task${j}" ${d.checks.includes(j)?"checked":""}><label for="task${j}">${x[0]}</label><span class="pts">+${x[1]} points</span></div>`).join("");
+ tasks.forEach((x,j)=>document.getElementById("task"+j).addEventListener("change",e=>{let day=getDay(selected);day.checks=day.checks.filter(v=>v!==j);if(e.target.checked)day.checks.push(j);data.days[dayKey(selected)]=day;save()}));
+ document.getElementById("savingInput").value=d.saving||"";document.getElementById("savedTotal").textContent=t.saved.toLocaleString("en-US")+" TRY";document.getElementById("goalLabel").textContent=data.goal.toLocaleString("en-US")+" TRY";document.getElementById("savingBar").style.width=Math.min(100,t.saved/Math.max(1,data.goal)*100)+"%";document.getElementById("goalInput").value=data.goal;
+ document.getElementById("map").innerHTML=Array.from({length:COUNT},(_,i)=>{let sc=score(i),cl=sc===100?"perfect":sc>=75?"mid":sc>=50?"high":sc>0?"low":"empty";return `<button class="tile ${cl} ${i===selected?"today":""}" data-i="${i}" title="${fmtDate(i)} • ${sc} points">${i+1}</button>`}).join("");
+ document.querySelectorAll(".tile").forEach(b=>b.onclick=()=>{selected=Number(b.dataset.i);render()});
+ document.getElementById("rewards").innerHTML=data.rewards.length?data.rewards.map((r,i)=>`<div class="shopitem"><div>🎁 <b>${esc(r.name)}</b><small>${Number(r.price).toLocaleString("en-US")} TRY · ${r.cost} points required</small></div><div style="display:flex;gap:6px"><button ${t.balance<r.cost?"disabled":""} data-buy="${i}">Buy</button><button data-del="${i}">✕</button></div></div>`).join(""):"<div class='tiny'>Dükkanın şimdilik boş. İlk wishlist ödülünü ekle ✨</div>";
+ document.querySelectorAll("[data-buy]").forEach(b=>b.onclick=()=>{let r=data.rewards[Number(b.dataset.buy)];if(totals().balance<r.cost)return;data.purchases.unshift({name:r.name,price:r.price,cost:r.cost,date:fmtDate(selected)});save()});
+ document.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{data.rewards.splice(Number(b.dataset.del),1);save()});
+ document.getElementById("purchases").innerHTML=data.purchases.length?data.purchases.map(p=>`<div>♡ <b>${esc(p.name)}</b> — ${p.cost} puan <span class="tiny">(${esc(p.date)})</span></div>`).join(""):"No rewards yet. Your first reward is waiting for you! ✨";
+}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+document.getElementById("applyPeriod").onclick=()=>{
+ let name=document.getElementById("periodName").value.trim()||"My Journey";
+ let start=document.getElementById("startDate").value, end=document.getElementById("endDate").value;
+ if(!start||!end||end<start){alert("Please choose a valid start and end date.");return}
+ data.periodName=name;data.startDate=start;data.endDate=end;COUNT=dayCount();selected=0;save();
+};
+document.getElementById("prev").onclick=()=>{selected=Math.max(0,selected-1);render()};
+document.getElementById("next").onclick=()=>{selected=Math.min(COUNT-1,selected+1);render()};
+document.getElementById("saveSaving").onclick=()=>{let d=getDay(selected);d.saving=Math.max(0,Number(document.getElementById("savingInput").value)||0);data.days[dayKey(selected)]=d;save()};
+document.getElementById("setGoal").onclick=()=>{data.goal=Math.max(1,Number(document.getElementById("goalInput").value)||5000);save()};
+document.getElementById("addReward").onclick=()=>{let name=document.getElementById("rewardName").value.trim(),price=Number(document.getElementById("rewardPrice").value),cost=Number(document.getElementById("rewardCost").value);if(!name||price<=0||cost<=0){alert("Enter a reward name, price in TRY, and required points.");return}data.rewards.push({name,price,cost});document.getElementById("rewardName").value="";document.getElementById("rewardPrice").value="";document.getElementById("rewardCost").value="";save()};
+document.getElementById("themeBtn").onclick=()=>{data.dark=!data.dark;save()};
+document.getElementById("exportBtn").onclick=()=>{let a=document.createElement("a"),u=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:"application/json"}));a.href=u;a.download="journey-tracker-backup.json";a.click();URL.revokeObjectURL(u)};
+document.getElementById("importBtn").onclick=()=>document.getElementById("importFile").click();
+document.getElementById("importFile").onchange=e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let x=JSON.parse(r.result);if(!x.days||!Array.isArray(x.rewards))throw Error();data=x;data.periodName=data.periodName||"Winter Arc";data.startDate=data.startDate||DEFAULT_START;data.endDate=data.endDate||DEFAULT_END;COUNT=dayCount();selected=0;save();alert("Backup imported successfully!")}catch{alert("This is not a valid journey tracker backup file.")}};r.readAsText(f)};
+render();
+</script>
+</body></html>
